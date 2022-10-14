@@ -6,6 +6,8 @@
           <v-col cols="12" sm="6">
             <v-select
               :items="roles"
+              item-text="label"
+              item-value="value"
               v-model="userNew.rol"
               outlined
               dense
@@ -106,7 +108,11 @@ export default {
         password: "",
         rol: "",
       },
-      roles: ["SUPER", "ADMIN", "DOCTOR"],
+      roles: [
+        { label: "SUPER", value: "SUPER" },
+        { label: "ADMIN", value: "ADMIN" },
+        { label: "DOCTOR", value: "DOCTOR" },
+      ],
     };
   },
 
@@ -114,18 +120,9 @@ export default {
     createPatient() {
       this.loading = true;
       const body = Object.assign({}, this.userNew);
-      if (this.gender == "male") {
-        body.isMale = true;
-      } else {
-        body.isMale = false;
-      }
-      if (this.date != null && this.date != "") {
-        body.bornDate = moment(this.date).toISOString();
-      } else {
-        body.bornDate = "";
-      }
+
       getAPI
-        .post("/patient/create", body)
+        .post("/user/create", body)
         .then((res) => {
           this.goPatients();
         })

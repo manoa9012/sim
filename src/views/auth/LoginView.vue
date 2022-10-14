@@ -69,9 +69,9 @@ export default {
       loading: false,
       rules: {
         requireduser: (val) =>
-          (val !== null && val !== "") || "Username is required",
+          (val !== null && val !== "") || "El correo es requerido",
         requiredpass: (val) =>
-          (val !== null && val !== "") || "Password is required",
+          (val !== null && val !== "") || "La contraseña es requerida",
       },
     };
   },
