@@ -77,7 +77,7 @@ export default {
           this.user = res.data;
         })
         .catch((error) => {
-          console.log("first");
+          console.log("error");
         });
     },
     prettyDate(date) {
@@ -86,7 +86,6 @@ export default {
     },
   },
   mounted() {
-    console.log("este");
     this.getuserData();
   },
 };

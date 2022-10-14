@@ -22,7 +22,7 @@ const routes: Array<RouteConfig> = [
     name: "Inicio",
     component: () => import("@/views/HomeView.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
   {
@@ -30,7 +30,7 @@ const routes: Array<RouteConfig> = [
     name: "usuarios",
     component: () => import("@/views/usuarios/Usuarios.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
   {
@@ -38,7 +38,7 @@ const routes: Array<RouteConfig> = [
     name: "usuario",
     component: () => import("@/views/usuarios/UserDetails.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
   {
@@ -46,7 +46,7 @@ const routes: Array<RouteConfig> = [
     name: "pacientes",
     component: () => import("@/views/patients/Patients.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
   {
@@ -54,7 +54,7 @@ const routes: Array<RouteConfig> = [
     name: "paciente",
     component: () => import("@/views/patients/PatientDetails.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
   {
@@ -62,7 +62,7 @@ const routes: Array<RouteConfig> = [
     name: "configuracion",
     component: () => import("@/views/configuracion/Configuracion.vue"),
     meta: {
-      requiresAuth: true,
+      requireAuth: true,
     },
   },
 ];

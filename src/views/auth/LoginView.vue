@@ -1,11 +1,10 @@
 <template>
   <div class="loginContent">
     <v-sheet
-      color="white"
       elevation="1"
       height="450"
       width="500"
-      class="rounded-xl"
+      class="rounded-xl card-login"
     >
       <v-container>
         <v-row>
@@ -110,5 +109,8 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+.card-login {
+  background-color: rgba(250, 242, 242, 0.601);
 }
 </style>

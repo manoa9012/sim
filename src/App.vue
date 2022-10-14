@@ -1,5 +1,11 @@
 <template>
   <v-app class="appsim">
+    <v-overlay :absolute="true" :value="loadinglogout">
+      <div class="d-flex flex-column">
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+        <span>Saliendo...</span>
+      </div>
+    </v-overlay>
     <template v-if="!loginform">
       <v-app-bar
         absolute
@@ -13,7 +19,7 @@
 
         <v-spacer></v-spacer>
 
-        <v-menu offset-y :close-on-content-click="closeOnContentClick">
+        <v-menu offset-y :close-on-content-click="true">
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on" icon>
               <v-icon>mdi-account-circle</v-icon>
@@ -72,6 +78,7 @@ export default Vue.extend({
   name: "App",
 
   data: () => ({
+    loadinglogout: false,
     drawer: true,
     group: "",
     siteRoutes: [
@@ -111,8 +118,12 @@ export default Vue.extend({
     ...mapMutations(["mutDrawerExpand", "mutShowDrawer", "destroyToken"]),
 
     logout() {
+      this.loadinglogout = true;
       this.destroyToken();
-      this.$router.push("/autenticar");
+      setTimeout(() => {
+        this.loadinglogout = false;
+        this.$router.push("/autenticar");
+      }, 1000);
     },
   },
 });
@@ -134,9 +145,9 @@ export default Vue.extend({
   max-width: 200px;
 }
 .appsim {
-  background-color: aqua;
+  background-color: rgba(164, 255, 255, 0.77);
 }
 .appbar {
-  background-color: aqua !important;
+  background-color: rgba(164, 255, 255, 0.77) !important;
 }
 </style>

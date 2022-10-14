@@ -78,14 +78,9 @@
                 }}</v-card-text>
               </v-card>
             </v-tab-item>
+
             <v-tab-item value="history">
-              <v-card flat>
-                <v-card-text>{{
-                  patient.histories.length == 0
-                    ? "No tiene historias"
-                    : patient.lastname
-                }}</v-card-text>
-              </v-card>
+              <History :patientId="patient.id" @history="getPatientData" />
             </v-tab-item>
           </v-tabs-items>
         </v-card-text>
@@ -107,7 +102,10 @@
 <script>
 import { getAPI } from "@/api/axios-base";
 import moment from "moment";
+
+import History from "./History.vue";
 export default {
+  components: { History },
   name: "patient-details",
   data() {
     return {
